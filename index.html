@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Валидация</title>
+    <script>
+        function valid() {
+            "use strict";
+
+            var number = document.getElementsByClassName("number")[0];
+            var email = document.getElementsByClassName("email")[0];
+            var passport = document.getElementsByClassName("passport")[0];
+
+            var numberValue = number.value;
+            var emailValue = email.value;
+            var passportValue = passport.value;
+
+            if (/\+7\(\d{3}\)-\d{3}-\d\d-\d\d/.test(numberValue)) {
+                number.style.background = "green";
+            } else {
+                number.style.background = "red";
+            }
+            if (/\w+@\w+\.\w+/.test(emailValue)) {
+                email.style.background = "green";
+            } else {
+                email.style.background = "red";
+            }
+            if (/\d{2} \d{2} \d{6}/.test(passportValue)) {
+                passport.style.background = "green";
+            } else {
+                passport.style.background = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" class="number">
+<input type="email" class="email">
+<input type="text" class="passport">
+<input type="button" value="Проверить" onclick="valid()">
+
+</body>
+</html>
